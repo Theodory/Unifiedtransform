@@ -58,7 +58,7 @@ class HomeController extends Controller
                             ->where('active',1)
                             ->get();
         });
-        $events = \Cache::remember('events-'.$school_id, $minutes, function () use ($school_id) {
+        $events = \Cache::remember('events-'.$school_id, $minutes, function () use($school_id) {
           return \App\Event::where('school_id', $school_id)
                           ->where('active',1)
                           ->get();
